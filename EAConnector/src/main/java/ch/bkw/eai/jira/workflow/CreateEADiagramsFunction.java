@@ -21,6 +21,7 @@ public class CreateEADiagramsFunction extends AbstractJiraFunctionProvider
 
     public void execute(Map transientVars, Map args, PropertySet ps) throws WorkflowException
     {
+    	
         MutableIssue issue = getIssue(transientVars);
         String message = (String)transientVars.get(FIELD_MESSAGE);
 

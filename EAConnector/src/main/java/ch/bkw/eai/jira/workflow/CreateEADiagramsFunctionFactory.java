@@ -20,8 +20,10 @@ import java.util.Map;
 public class CreateEADiagramsFunctionFactory extends AbstractWorkflowPluginFactory implements WorkflowPluginFunctionFactory
 {
     public static final String FIELD_MESSAGE = "messageField";
-    
-    
+
+    @Override
+    protected void getVelocityParamsForInput(Map<String, Object> velocityParams) {
+    }
 
     @Override
     protected void getVelocityParamsForEdit(Map<String, Object> velocityParams, AbstractDescriptor descriptor) {
