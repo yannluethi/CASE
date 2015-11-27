@@ -20,22 +20,8 @@ import java.util.Map;
 public class CreateEADiagramsFunctionFactory extends AbstractWorkflowPluginFactory implements WorkflowPluginFunctionFactory
 {
     public static final String FIELD_MESSAGE = "messageField";
-
-    private WorkflowManager workflowManager;
-
-    public CreateEADiagramsFunctionFactory(WorkflowManager workflowManager) {
-        this.workflowManager = workflowManager;
-    }
-
-    @Override
-    protected void getVelocityParamsForInput(Map<String, Object> velocityParams) {
-        Map<String, String[]> myParams = ActionContext.getParameters();
-        final JiraWorkflow jiraWorkflow = workflowManager.getWorkflow(myParams.get("workflowName")[0]);
-
-        //the default message
-        velocityParams.put(FIELD_MESSAGE, "Workflow Last Edited By " + jiraWorkflow.getUpdateAuthorName());
-
-    }
+    
+    
 
     @Override
     protected void getVelocityParamsForEdit(Map<String, Object> velocityParams, AbstractDescriptor descriptor) {
