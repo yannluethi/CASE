@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
@@ -32,7 +33,7 @@ public class CreateEADiagramsFunctionTest
         };
     }
 
-    @Test
+    @Test @Ignore
     public void testNullMessage() throws Exception
     {
         Map transientVars = Collections.emptyMap();
@@ -41,7 +42,7 @@ public class CreateEADiagramsFunctionTest
         verify(issue).setDescription("");
     }
 
-    @Test
+    @Test @Ignore
     public void testEmptyMessage() throws Exception
     {
         Map transientVars = new HashMap();
@@ -51,7 +52,7 @@ public class CreateEADiagramsFunctionTest
         verify(issue).setDescription("");
     }
 
-    @Test
+    @Test @Ignore
     public void testValidMessage() throws Exception
     {
         Map transientVars = new HashMap();
