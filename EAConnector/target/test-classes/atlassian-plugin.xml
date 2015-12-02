@@ -1,14 +1,19 @@
-<atlassian-plugin key="${project.groupId}.${project.artifactId}-tests" name="${project.name}" plugins-version="2">
-    <plugin-info>
-        <description>${project.description}</description>
-        <version>${project.version}</version>
-        <vendor name="${project.organization.name}" url="${project.organization.url}" />
-    </plugin-info>
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <!-- from our base plugin -->
-    <component-import key="myComponent" interface="ch.bkw.eai.jira.api.MyPluginComponent"/>
-
-    <!-- from the product container -->
-    <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties" />
-    
+<atlassian-plugin key="ch.bkw.eai.EAConnector-tests" name="EAConnector" plugins-version="2">
+  <plugin-info>
+    <description>This is the ch.bkw.eai:EAConnector plugin for Atlassian JIRA.</description>
+    <version>1.0</version>
+    <vendor name="BKW" url="http://www.bkw.ch/"/>
+  </plugin-info>
+  <!-- from our base plugin -->
+  <component-import key="myComponent" interface="ch.bkw.eai.jira.api.MyPluginComponent"/>
+  <!-- from the product container -->
+  <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties"/>
+  <component key="my-component-wired-test" class="it.ch.bkw.eai.jira.MyComponentWiredTest" public="true">
+    <interface>it.ch.bkw.eai.jira.MyComponentWiredTest</interface>
+    <service-properties>
+      <entry key="inProductTest" value="true"/>
+    </service-properties>
+  </component>
 </atlassian-plugin>

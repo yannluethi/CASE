@@ -24,6 +24,7 @@
 			<groupId>com.sparxsystems</groupId>
 			<artifactId>ea-api</artifactId>
 			<version>1.0</version>
+			<scope>compile</scope>
 		</dependency>
 		<!-- Add dependency on jira-core if you want access to JIRA implementation 
 			classes as well as the sanctioned API. -->
