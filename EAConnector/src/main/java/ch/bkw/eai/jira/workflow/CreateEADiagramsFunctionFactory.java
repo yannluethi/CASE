@@ -48,7 +48,8 @@ public class CreateEADiagramsFunctionFactory extends AbstractWorkflowPluginFacto
     }
 
 
-    public Map<String,?> getDescriptorParams(Map<String, Object> formParams) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public Map<String,?> getDescriptorParams(Map<String, Object> formParams) {
         Map params = new HashMap();
 
         // Process The map
