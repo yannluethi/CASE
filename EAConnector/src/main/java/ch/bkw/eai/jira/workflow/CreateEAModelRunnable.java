@@ -1,5 +1,9 @@
 package ch.bkw.eai.jira.workflow;
 
+import java.util.StringTokenizer;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.sparx.Collection;
 import org.sparx.Diagram;
 import org.sparx.DiagramObject;
@@ -8,6 +12,7 @@ import org.sparx.Package;
 import org.sparx.Repository;
 
 public class CreateEAModelRunnable implements Runnable {
+	private static final Logger LOG = LoggerFactory.getLogger("atlassian.plugin");
 	
 	private static final String EA_PROJECT_PATH = "c:/Users/Yann/TestProject.eap";
 	
@@ -23,12 +28,29 @@ public class CreateEAModelRunnable implements Runnable {
 	
 	@Override
 	public void run() {
+		LOG.info("Opening EA Repository: " + EA_PROJECT_PATH);
 		eaRepository = new Repository();
 		eaRepository.OpenFile(EA_PROJECT_PATH);
-		
+
+		LOG.info("Copying EA Template...");
 		copyTemplate();
+		LOG.info("Linking Diagrams...");
 		linkDiagrams();
-		addEpic();
+		
+		StringTokenizer tok = new StringTokenizer(epicName, " ");
+		if(epicName != null)
+		{
+			while(tok.hasMoreTokens()){
+				if(tok.nextToken().equals("Epic:"))
+				{
+					epicName = tok.nextToken();
+					LOG.info("Adding Epic...");
+					addEpic();
+				}
+			}
+		}
+		
+		LOG.info("Done.");
 	}
 	
 	private void addEpic(){

@@ -16,7 +16,7 @@ import com.opensymphony.workflow.WorkflowException;
  */
 public class CreateEADiagramsFunction extends AbstractJiraFunctionProvider
 {
-    private static final Logger LOG = LoggerFactory.getLogger(CreateEADiagramsFunction.class);
+    private static final Logger LOG = LoggerFactory.getLogger("atlassian.plugin");
     public static final String FIELD_MESSAGE = "messageField";
 
     @SuppressWarnings("rawtypes")
@@ -26,7 +26,7 @@ public class CreateEADiagramsFunction extends AbstractJiraFunctionProvider
 		MutableIssue issue = getIssue(transientVars);
 		
 		String diagramName = issue.getSummary();
-		String epicName = "Test (EAI-001)";
+		String epicName = issue.getDescription();
 		
 		LOG.info("Starting new Thread");
 		Runnable modelCreator = new CreateEAModelRunnable(epicName, diagramName);
