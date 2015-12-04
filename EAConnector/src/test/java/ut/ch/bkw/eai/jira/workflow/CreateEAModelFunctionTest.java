@@ -1,6 +1,6 @@
 package ut.ch.bkw.eai.jira.workflow;
 
-import ch.bkw.eai.jira.workflow.CreateEADiagramsFunction;
+import ch.bkw.eai.jira.workflow.CreateEAModelFunction;
 
 import com.atlassian.jira.issue.MutableIssue;
 import java.util.Collections;
@@ -14,11 +14,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class CreateEADiagramsFunctionTest
+public class CreateEAModelFunctionTest
 {
     public static final String MESSAGE = "my message";
 
-    protected CreateEADiagramsFunction function;
+    protected CreateEAModelFunction function;
     protected MutableIssue issue;
 
     @Before
@@ -26,7 +26,7 @@ public class CreateEADiagramsFunctionTest
         issue = mock(MutableIssue.class);
         when(issue.getDescription()).thenReturn("");
 
-        function = new CreateEADiagramsFunction() {
+        function = new CreateEAModelFunction() {
             protected MutableIssue getIssue(Map transientVars) {
                 return issue;
             }

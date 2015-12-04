@@ -14,7 +14,7 @@ import com.opensymphony.workflow.WorkflowException;
  * This is the post-function class that gets executed at the end of the transition.
  * Any parameters that were saved in your factory class will be available in the transientVars Map.
  */
-public class CreateEADiagramsFunction extends AbstractJiraFunctionProvider
+public class CreateEAModelFunction extends AbstractJiraFunctionProvider
 {
     private static final Logger LOG = LoggerFactory.getLogger("atlassian.plugin");
     public static final String FIELD_MESSAGE = "messageField";

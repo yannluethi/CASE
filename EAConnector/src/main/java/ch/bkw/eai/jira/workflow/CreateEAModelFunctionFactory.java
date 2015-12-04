@@ -17,7 +17,7 @@ import java.util.Map;
  * This is typically where you put default values into the velocity context and where you store user input.
  */
 
-public class CreateEADiagramsFunctionFactory extends AbstractWorkflowPluginFactory implements WorkflowPluginFunctionFactory
+public class CreateEAModelFunctionFactory extends AbstractWorkflowPluginFactory implements WorkflowPluginFunctionFactory
 {
     public static final String FIELD_MESSAGE = "messageField";
 
